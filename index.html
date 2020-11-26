@@ -102,9 +102,8 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-132413803-2');
-    ga('send', 'LesterIO');
-
-
+    gtag('config', 'LesterIO');
+    
     var oldURL = document.referrer;
         var prevUrl = "";
         if(oldURL != ""){
@@ -121,12 +120,7 @@
         if(arg == null ||arg == "") arg = "None";
         if(prevUrl != "") arg = prevUrl+"_"+arg;
 
-        ga('send', {
-              hitType: 'event',
-              eventCategory: 'Home',
-              eventAction: 'Visit',
-              eventLabel: arg
-        });
+        gtag('event', 'Home', {'Visit': arg});
   </script>
 </body>
 </html>
