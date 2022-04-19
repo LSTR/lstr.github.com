@@ -355,6 +355,34 @@
         <!-- Customized js -->
         <script src="init.js"></script>
     
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132413803-2"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-132413803-2', { 'groups': 'lester.io' });
+            
+            var oldURL = document.referrer;
+                var prevUrl = "";
+                if(oldURL != ""){
+                    var old_url = new URL(oldURL);
+                    if(old_url != null && old_url.host != null){
+                        prevUrl = old_url.host
+                    }
+                }
+                
+                
+                var url_string = location.href;
+                var url = new URL(url_string);
+                var arg = url.searchParams.get("i");
+                if(arg == null ||arg == "") arg = "None";
+                if(prevUrl != "") arg = prevUrl+"_"+arg;
+
+                gtag('event', 'Resume', {'Visit': arg});
+        </script>
     
     
     
@@ -396,5 +424,6 @@
 
     
 
-<div class="hiddendiv common"></div><div style="left: 0px;" class="drag-target"></div><div class="material-tooltip"><span>Photography</span><div style="top: 0px; left: 0px;" class="backdrop"></div></div><div class="material-tooltip"><span>Drinking</span><div style="top: 0px; left: 0px;" class="backdrop"></div></div><div class="material-tooltip"><span>Music</span><div style="top: 0px; left: 0px;" class="backdrop"></div></div><div class="material-tooltip"><span>Chatting</span><div style="top: 0px; left: 0px;" class="backdrop"></div></div><div class="material-tooltip"><span>Coffee</span><div style="top: 0px; left: 0px;" class="backdrop"></div></div></body>
+    <div class="hiddendiv common"></div><div style="left: 0px;" class="drag-target"></div><div class="material-tooltip"><span>Photography</span><div style="top: 0px; left: 0px;" class="backdrop"></div></div><div class="material-tooltip"><span>Drinking</span><div style="top: 0px; left: 0px;" class="backdrop"></div></div><div class="material-tooltip"><span>Music</span><div style="top: 0px; left: 0px;" class="backdrop"></div></div><div class="material-tooltip"><span>Chatting</span><div style="top: 0px; left: 0px;" class="backdrop"></div></div><div class="material-tooltip"><span>Coffee</span><div style="top: 0px; left: 0px;" class="backdrop"></div></div></body>
+
 </html>

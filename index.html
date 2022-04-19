@@ -255,4 +255,31 @@
         <script type="text/javascript" src="./res/plugins.js"></script>
         <script type="text/javascript" src="./res/scripts.js"></script>
     
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-132413803-2"></script> -->
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-132413803-2', { 'groups': 'lester.io' });
+            
+            var oldURL = document.referrer;
+                var prevUrl = "";
+                if(oldURL != ""){
+                    var old_url = new URL(oldURL);
+                    if(old_url != null && old_url.host != null){
+                        prevUrl = old_url.host
+                    }
+                }
+                
+                
+                var url_string = location.href;
+                var url = new URL(url_string);
+                var arg = url.searchParams.get("i");
+                if(arg == null ||arg == "") arg = "None";
+                if(prevUrl != "") arg = prevUrl+"_"+arg;
+
+                gtag('event', 'Home', {'Visit': arg});
+        </script>
 </body></html>
